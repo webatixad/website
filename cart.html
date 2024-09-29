@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Cart</title>
+</head>
+<body>
+    <h1>Product List</h1>
+    <button onclick="addToCart(1)">Add Product 1</button>
+    <button onclick="addToCart(2)">Add Product 2</button>
+
+    <h2>Your Cart</h2>
+    <div id="cart"></div>
+
+    <script>
+        let userId = 'user123'; // Example user ID
+        let cart = {};
+
+        function addToCart(productId) {
+            // Replace the existing product in the cart
+            cart[userId] = productId;
+            updateCartDisplay();
+            // Optionally, send the cart to the server
+            // sendCartToServer(cart);
+        }
+
+        function updateCartDisplay() {
+            const cartDiv = document.getElementById('cart');
+            cartDiv.innerHTML = `Product in Cart: ${cart[userId] || 'None'}`;
+        }
+
+        // Uncomment this function to send cart data to the server
+        /*
+        function sendCartToServer(cart) {
+            fetch('/update-cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(cart),
+            })
+            .then(response => response.json())
+            .then(data => console.log('Success:', data))
+            .catch((error) => console.error('Error:', error));
+        }
+        */
+    </script>
+</body>
+</html>
+<script src = "nine.tsx"></script>
+<link rel="stylesheet" href="yoyo.css">
+
